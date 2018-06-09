@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		body{
+  		background: #FFB3FF;
+  	}
+  	#BOSS{
+  		color: orangered;
+  		position: absolute;
+  		top: 200px;
+  		left: 600px;
+  	}
+	</style>
+	<body>
+		<canvas id="c" width="800px" height="500px"></canvas>
+		<script>
+			var c=document.getElementById("c");
+			var ctx=c.getContext("2d");
+			//绘制图片
+			var image=new Image();
+			image.src="img/SL.jpg";
+			var image2=new Image();
+			image2.src="img/TIM.png";
+			small();
+			function small(){
+				//擦出大心
+				ctx.clearRect(100,100,400,400);
+				ctx.drawImage(image,100,100,200,200);
+				setTimeout(big,1500);
+			}
+			function big(){
+				//擦出小心
+				ctx.clearRect(100,100,200,200);
+				ctx.drawImage(image2,100,100,400,400);
+				setTimeout(small,1500);
+			}
+		</script>
+		
+		<div id="BOSS">
+			<h1>成功击杀BOSS，将获得神秘大奖</h1>
+		</div>
+	</body>
+</html>
